@@ -7,7 +7,7 @@ export default Ember.Controller.extend({
     addToAvengers: function (hero) {
       this.set('error', null);
 
-      if (hero.get('isAvenger')) {
+      if (hero.get('superGroup.name') === 'Avengers') {
         var currentAvengers = this.get('model.avengers');
 
         if (currentAvengers.indexOf(hero) < 0) {
