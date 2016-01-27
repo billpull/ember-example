@@ -1,11 +1,12 @@
 import Ember from 'ember';
-import Person from '../../models/person';
+import Hero from '../../models/hero';
 
 export default Ember.Route.extend({
   model: function () {
-    return Person.create({
+    return Hero.create({
       firstName: 'Steve',
-      lastName:  'Rogers'
+      lastName:  'Rogers',
+      heroName: 'Captain America'
     });
   }
 });
