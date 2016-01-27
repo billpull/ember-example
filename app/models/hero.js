@@ -1,14 +1,15 @@
+import DS from 'ember-data';
 import Ember from 'ember';
 
-export default Ember.Object.extend({
-  // these will be supplied by `create`
-  firstName: null,
-  lastName: null,
-  heroName: null,
-  isAvenger: false,
-  powers: [],
+export default DS.Model.extend({
+  firstName: DS.attr('string'),
+  lastName: DS.attr('string'),
+  heroName: DS.attr('string'),
 
-  fullName: Ember.computed('firstName', 'lastName', function() {
+  superPowers: DS.hasMany('super-power'),
+  superGroup: DS.belongsTo('super-group'),
+
+  fullName: Ember.computed('firstName', 'lastName', function () {
     return `${this.get('firstName')} ${this.get('lastName')}`;
   })
 });
