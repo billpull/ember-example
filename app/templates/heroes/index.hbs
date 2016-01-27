@@ -1,5 +1,16 @@
+{{#if error}}
+  <strong style="color: red;">{{error}}</strong>
+{{/if}}
+
 <ul>
-  {{#each model as |hero|}}
-    {{super-hero hero=hero}}
+  {{#each model.heroes as |hero|}}
+    {{super-hero hero=hero assemble=(action 'addToAvengers')}}
+  {{/each}}
+</ul>
+
+<h2>Avengers</h2>
+<ul>
+  {{#each model.avengers as |avenger|}}
+    {{super-hero hero=avenger}}
   {{/each}}
 </ul>

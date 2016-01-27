@@ -6,15 +6,29 @@ export default Ember.Route.extend({
     var ironMan = Hero.create({
       firstName: 'Tony',
       lastName:  'Stark',
-      heroName: 'Iron Man'
+      heroName: 'Iron Man',
+      isAvenger: true
     });
 
     var captainAmerica = Hero.create({
       firstName: 'Steve',
       lastName:  'Rogers',
-      heroName: 'Captain America'
+      heroName: 'Captain America',
+      isAvenger: true
     });
 
-    return Ember.A([ironMan, captainAmerica]);
+    var batman = Hero.create({
+      firstName: 'Bruce',
+      lastName: 'Wayne',
+      heroName: 'Batman',
+      isAvenger: false
+    });
+
+    var model = new Ember.RSVP.hash({
+      heroes: Ember.A([ironMan, captainAmerica, batman]),
+      avengers: Ember.A([])
+    });
+
+    return model;
   }
 });
